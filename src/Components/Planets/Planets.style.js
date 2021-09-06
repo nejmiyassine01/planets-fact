@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { device } from '../../styles/Breakpoint';
 
-export const PlanetContainer = styled.div`
+export const PlanetWrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -36,7 +36,7 @@ export const PlanetImage = styled.div`
   }
 `;
 
-export const PlanetWrapper = styled.div`
+export const PlanetContainer = styled.div`
   width: 40%;
 
   @media ${device.laptop} {
@@ -104,6 +104,11 @@ export const TabsButtons = styled.div`
     align-items: center;
   }
 
+  @media ${device.mobileS} {
+    width: 100%;
+    padding: 20px;
+  }
+
   button {
     margin: ${({ theme }) => theme.marginSmall} 0;
     background: transparent;
@@ -116,6 +121,10 @@ export const TabsButtons = styled.div`
     text-transform: uppercase;
     font-weight: 700;
     transition: 0.3s linear;
+
+    @media ${device.mobileS} {
+      width: 100%;
+    }
 
     &:hover {
       cursor: pointer;
@@ -130,5 +139,52 @@ export const TabsButtons = styled.div`
     span {
       padding-right: 20px;
     }
+  }
+`;
+
+export const PlanetFooter = styled.div`
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media ${device.tablet} {
+    padding: 20px;
+    justify-content: center;
+  }
+`;
+
+export const PlanetFooterItem = styled.div`
+  border: 1px solid ${({ theme }) => theme.fontColor};
+  width: 250px;
+  padding: 20px;
+  margin: 10px;
+
+  @media ${device.tablet} {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media ${device.mobileS} {
+    flex-direction: column;
+    justify-content: center;
+  }
+`;
+
+export const PlanetFooterTitle = styled.h3`
+  color: ${({ theme }) => theme.linkColor};
+  font-size: 14px;
+  text-transform: uppercase;
+`;
+
+export const PlanetFooterText = styled.p`
+  font-weight: 700;
+  margin-top: 5px;
+  font-size: 30px;
+
+  @media ${device.tablet} {
+    font-size: 16px;
   }
 `;

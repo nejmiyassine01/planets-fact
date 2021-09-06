@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-  position: absolute;
+  position: fixed;
   bottom: 32px;
   right: 32px;
   padding: 20px;
