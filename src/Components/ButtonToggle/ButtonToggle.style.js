@@ -9,6 +9,7 @@ export const Button = styled.button`
   border-radius: 50%;
   background-color: ${({ theme }) => theme.fontColor};
   transition: all 0.3s linear;
+  z-index: 100;
 
   svg {
     color: ${({ theme }) => theme.backgroundColor};

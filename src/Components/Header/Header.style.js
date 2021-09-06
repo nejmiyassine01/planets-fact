@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import { device } from '../../styles/Breakpoint';
 
 export const HeaderContainer = styled.header`
-  position: fixed;
+  position: absolute;
   width: 100%;
   padding: 25px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid ${({ theme }) => theme.primary};
+  z-index: 100;
 
   @media ${device.laptop} {
     flex-direction: column;

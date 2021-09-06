@@ -7,7 +7,11 @@ export const lightTheme = {
   backgroundColor: '#eee',
   fontColor: '#111',
   linkColor: '#666',
+  hoverColor: '#fff',
   primary: '#4B6587',
+  marginSmall: '15px',
+  marginMedium: '35px',
+  marginLarge: '50px',
 };
 
 export const darkTheme = {
@@ -15,7 +19,11 @@ export const darkTheme = {
   backgroundColor: '#111',
   fontColor: '#fff',
   linkColor: '#999',
+  hoverColor: '#111',
   primary: '#F0E5CF',
+  marginSmall: '15px',
+  marginMedium: '35px',
+  marginLarge: '50px',
 };
 
 export const GlobalStyles = createGlobalStyle`
@@ -25,6 +33,5 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.fontColor};
     z-index: -1;
     transition: .5s linear;
-    overflow: hidden;
   }
 `;

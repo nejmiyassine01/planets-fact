@@ -19,7 +19,11 @@ const Header = () => {
         <ul className={toggle ? 'active' : ''}>
           {data.map(({ name, id }) => (
             <li key={id}>
-              <PlanetsLinks to={name} activeClassName='active'>
+              <PlanetsLinks
+                onClick={toggleMenu}
+                to={name}
+                activeClassName='active'
+              >
                 {name}
               </PlanetsLinks>
             </li>
