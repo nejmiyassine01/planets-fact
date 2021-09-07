@@ -109,10 +109,11 @@ export const PlanetContent = styled.div`
 `;
 
 export const TabsButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+
   @media ${device.laptop} {
     width: 40%;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
