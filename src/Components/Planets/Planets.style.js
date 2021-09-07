@@ -36,6 +36,19 @@ export const PlanetImage = styled.div`
   }
 `;
 
+export const PlanetGeology = styled.div`
+  position: relative;
+`;
+
+export const PlanetGeologyImage = styled.img`
+  width: 150px !important;
+  height: 200px !important;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
 export const PlanetContainer = styled.div`
   width: 40%;
 
@@ -108,37 +121,38 @@ export const TabsButtons = styled.div`
     width: 100%;
     padding: 20px;
   }
+`;
 
-  button {
-    margin: ${({ theme }) => theme.marginSmall} 0;
-    background: transparent;
-    color: ${({ theme }) => theme.fontColor};
-    border: 1px solid ${({ theme }) => theme.linkColor};
-    height: 50px;
-    width: 300px;
-    text-align: start;
-    padding-left: 20px;
-    text-transform: uppercase;
-    font-weight: 700;
-    transition: 0.3s linear;
+export const Button = styled.button`
+  margin: ${({ theme }) => theme.marginSmall} 0;
+  background: transparent;
+  color: ${({ theme }) => theme.fontColor};
+  border: 1px solid ${({ theme }) => theme.linkColor};
+  height: 50px;
+  width: 300px;
+  text-align: start;
+  padding-left: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: 0.3s linear;
 
-    @media ${device.mobileS} {
-      width: 100%;
-    }
+  @media ${device.mobileS} {
+    width: 100%;
+  }
 
-    &:hover {
-      cursor: pointer;
-      background-color: ${({ theme }) => theme.primary};
-      color: ${({ theme }) => theme.hoverColor};
-
-      span {
-        color: ${({ theme }) => theme.hoverColor};
-      }
-    }
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background-color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.hoverColor};
 
     span {
-      padding-right: 20px;
+      color: ${({ theme }) => theme.hoverColor};
     }
+  }
+
+  span {
+    padding-right: 20px;
   }
 `;
 

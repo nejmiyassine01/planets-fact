@@ -11,6 +11,9 @@ import {
   PlanetFooterItem,
   PlanetFooterTitle,
   PlanetFooterText,
+  PlanetGeologyImage,
+  PlanetGeology,
+  Button,
 } from './Planets.style';
 
 import data from '../../Data/data.json';
@@ -23,10 +26,12 @@ const Mercury = () => {
   const clearPath = path.replace(/[^\w\s]/gi, '');
 
   const [currentTab, setCurrentTab] = useState(tabs[0].data);
+  const [show, setShow] = useState(false);
 
-  const handleClick = (e) => setCurrentTab(e.target.value);
-  console.log(data[0][currentTab]);
-  console.log(currentTab);
+  const handleClick = (e) => {
+    setCurrentTab(e.target.value);
+    setShow(!show);
+  };
 
   return (
     <>
@@ -36,7 +41,17 @@ const Mercury = () => {
           <div key={data.id}>
             <PlanetWrapper>
               <PlanetImage>
-                <img src={data.images[currentTab]} alt={data.name} />
+                {currentTab === 'geology' ? (
+                  <PlanetGeology>
+                    <img src={data.images['overview']} alt={data.name} />
+                    <PlanetGeologyImage
+                      src={data.images[currentTab]}
+                      alt={data.name}
+                    />
+                  </PlanetGeology>
+                ) : (
+                  <img src={data.images[currentTab]} alt={data.name} />
+                )}
               </PlanetImage>
               <PlanetContainer>
                 <PlanetContent>
@@ -56,10 +71,9 @@ const Mercury = () => {
                 </PlanetContent>
                 <TabsButtons>
                   {tabs.map(({ id, data }) => (
-                    <button key={id} onClick={handleClick} value={data}>
-                      {/* {console.log(data)} */}
+                    <Button key={id} onClick={handleClick} value={data}>
                       <span>0{id}</span> {data}
-                    </button>
+                    </Button>
                   ))}
                 </TabsButtons>
               </PlanetContainer>
