@@ -37,7 +37,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Solution page](https://github.com/nejmiyassine01/planets-fact)
-- Live Site URL: [Live site]()
+- Live Site URL: [Live site](https://planets-fact-delta.vercel.app/)
 
 ## My process
 
@@ -60,4 +60,4 @@ Looking for time to add a swipe functionnality to change tabs components.
 
 ## Author
 
-- Github - [Clement Creusat](https://github.com/nejmiyassine01)
+- Github - [Nejmi Yassine](https://github.com/nejmiyassine01)
