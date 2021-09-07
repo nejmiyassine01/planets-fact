@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as Fa from 'react-icons/fa';
 
 import {
@@ -21,70 +21,69 @@ const Mercury = () => {
   const query = useLocation();
   const path = query.pathname;
   const clearPath = path.replace(/[^\w\s]/gi, '');
-  console.log(data);
+
+  const [currentTab, setCurrentTab] = useState(tabs[0].data);
+
+  const handleClick = (e) => setCurrentTab(e.target.value);
+  console.log(data[0][currentTab]);
+  console.log(currentTab);
 
   return (
     <>
       {data
         .filter(({ name }) => name === clearPath)
-        .map(
-          ({
-            id,
-            name,
-            images,
-            geology,
-            radius,
-            revolution,
-            rotation,
-            temperature,
-          }) => (
-            <div key={id}>
-              <PlanetWrapper>
-                <PlanetImage>
-                  <img src={images.overview} alt={name} />
-                </PlanetImage>
-                <PlanetContainer>
-                  <PlanetContent>
-                    <h3>{name}</h3>
-                    <p>{geology.content}</p>
-                    <span>
-                      Source:{' '}
-                      <a href={geology.source} target='_blank' rel='noreferrer'>
-                        Wikipedia
-                      </a>
-                      <Fa.FaExternalLinkSquareAlt />
-                    </span>
-                  </PlanetContent>
-                  <TabsButtons>
-                    {tabs.map(({ id, data }) => (
-                      <button key={id}>
-                        <span>0{id}</span> {data}
-                      </button>
-                    ))}
-                  </TabsButtons>
-                </PlanetContainer>
-              </PlanetWrapper>
-              <PlanetFooter>
-                <PlanetFooterItem>
-                  <PlanetFooterTitle>Rotation Time</PlanetFooterTitle>
-                  <PlanetFooterText>{rotation}</PlanetFooterText>
-                </PlanetFooterItem>
-                <PlanetFooterItem>
-                  <PlanetFooterTitle>Revolution Time</PlanetFooterTitle>
-                  <PlanetFooterText>{revolution}</PlanetFooterText>
-                </PlanetFooterItem>
-                <PlanetFooterItem>
-                  <PlanetFooterTitle>Radius</PlanetFooterTitle>
-                  <PlanetFooterText>{radius}</PlanetFooterText>
-                </PlanetFooterItem>
-                <PlanetFooterItem>
-                  <PlanetFooterTitle>Average Temp</PlanetFooterTitle>
-                  <PlanetFooterText>{temperature}</PlanetFooterText>
-                </PlanetFooterItem>
-              </PlanetFooter>
-            </div>
-          )
-        )}
+        .map((data) => (
+          <div key={data.id}>
+            <PlanetWrapper>
+              <PlanetImage>
+                <img src={data.images[currentTab]} alt={data.name} />
+              </PlanetImage>
+              <PlanetContainer>
+                <PlanetContent>
+                  <h3>{data.name}</h3>
+                  <p>{data[currentTab].content}</p>
+                  <span>
+                    Source:{' '}
+                    <a
+                      href={data[currentTab].source}
+                      target='_blank'
+                      rel='noreferrer'
+                    >
+                      Wikipedia
+                    </a>
+                    <Fa.FaExternalLinkSquareAlt />
+                  </span>
+                </PlanetContent>
+                <TabsButtons>
+                  {tabs.map(({ id, data }) => (
+                    <button key={id} onClick={handleClick} value={data}>
+                      {/* {console.log(data)} */}
+                      <span>0{id}</span> {data}
+                    </button>
+                  ))}
+                </TabsButtons>
+              </PlanetContainer>
+            </PlanetWrapper>
+            <PlanetFooter>
+              <PlanetFooterItem>
+                <PlanetFooterTitle>Rotation Time</PlanetFooterTitle>
+                <PlanetFooterText>{data.rotation}</PlanetFooterText>
+              </PlanetFooterItem>
+              <PlanetFooterItem>
+                <PlanetFooterTitle>Revolution Time</PlanetFooterTitle>
+                <PlanetFooterText>{data.revolution}</PlanetFooterText>
+              </PlanetFooterItem>
+              <PlanetFooterItem>
+                <PlanetFooterTitle>Radius</PlanetFooterTitle>
+                <PlanetFooterText>{data.radius}</PlanetFooterText>
+              </PlanetFooterItem>
+              <PlanetFooterItem>
+                <PlanetFooterTitle>Average Temp</PlanetFooterTitle>
+                <PlanetFooterText>{data.temperature}</PlanetFooterText>
+              </PlanetFooterItem>
+            </PlanetFooter>
+          </div>
+        ))}
     </>
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect, Route } from 'react-router';
 import { ThemeProvider } from 'styled-components';
 
 import ButtonToggle from './Components/ButtonToggle/ButtonToggle.component.jsx';
@@ -17,6 +18,9 @@ const App = () => {
       <GlobalStyles />
       <ButtonToggle theme={theme} themeToggler={themeToggler} />
       <Header />
+      <Route exact path='/'>
+        <Redirect to='/Earth'></Redirect>
+      </Route>
       <Planets />
     </ThemeProvider>
   );
